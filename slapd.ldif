@@ -69,6 +69,18 @@ olcDatabase: frontend
 # rootdn can always read and write EVERYTHING!
 #
 
+dn: cn=config
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/openldap/certs/CA.crt
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/server.crt
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/server.key
+
+# TLSCipherSuite HIGH:MEDIUM:+SSLv2
+
 
 #######################################################################
 # LMDB database definitions

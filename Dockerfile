@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-RUN apk add --update openldap openldap-back-mdb openldap-clients && \
+RUN apk add --update openssl openldap openldap-back-mdb openldap-clients && \
     mkdir -p /run/openldap /var/lib/openldap/openldap-data && \
     rm -rf /var/cache/apk/* /etc/openldap/slapd.* /etc/openldap/DB_CONFIG.example /var/lib/openldap/openldap-data
 
