@@ -1,0 +1,12 @@
+FROM alpine:3.7
+
+RUN apk add --update openldap openldap-back-mdb && \
+    mkdir -p /run/openldap /var/lib/openldap/openldap-data && \
+    rm -rf /var/cache/apk/* /etc/openldap/slapd.* /etc/openldap/DB_CONFIG.example
+
+CMD slapd -d 1 -h "ldaps:///" -F /var/lib/ldap/config
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY slapd.ldif etc/openldap/slapd.ldif
+
+ENTRYPOINT /docker-entrypoint.sh
