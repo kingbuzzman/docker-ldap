@@ -11,6 +11,16 @@ cn: config
 #
 olcArgsFile: /var/run/slapd.args
 olcPidFile: /var/run/slapd.pid
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/openldap/certs/CA.crt
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/server.crt
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/server.key
+# TLSCipherSuite HIGH:MEDIUM:+SSLv2
+
 #
 # Do not enable referrals until AFTER you have a working directory
 # service AND an understanding of referrals.
@@ -68,19 +78,6 @@ olcDatabase: frontend
 #
 # rootdn can always read and write EVERYTHING!
 #
-
-dn: cn=config
-add: olcTLSCACertificateFile
-olcTLSCACertificateFile: /etc/openldap/certs/CA.crt
--
-add: olcTLSCertificateFile
-olcTLSCertificateFile: /etc/openldap/certs/server.crt
--
-add: olcTLSCertificateKeyFile
-olcTLSCertificateKeyFile: /etc/openldap/certs/server.key
-
-# TLSCipherSuite HIGH:MEDIUM:+SSLv2
-
 
 #######################################################################
 # LMDB database definitions
