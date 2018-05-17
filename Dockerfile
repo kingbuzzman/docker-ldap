@@ -8,4 +8,4 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 COPY slapd.ldif etc/openldap/slapd.ldif
 
 ENTRYPOINT /docker-entrypoint.sh
-CMD slapd -d 1 -h 'ldaps:///' -F /var/lib/ldap/config
+CMD slapd -d 1 -h 'ldaps:///' -F /var/lib/openldap/config
